@@ -1,4 +1,6 @@
 import type { CollectionSlug, Config } from 'payload'
+import { MyPluginEndpointHandler } from './controllers/my-plugin-endpoint-handler.js'
+import { ExportHandler } from './controllers/export-handler.js'
 
 export type PayloadPluginTemplateConfig = {
   /**
@@ -39,6 +41,26 @@ export const payloadPluginTemplate =
               position: 'sidebar',
             },
           })
+
+          if (pluginOptions.disabled) {
+            continue
+          }
+
+          if (!collection.admin) {
+            collection.admin = {}
+          }
+
+          if (!collection.admin.components) {
+            collection.admin.components = {}
+          }
+
+          if (!collection.admin.components.beforeList) {
+            collection.admin.components.beforeList = []
+          }
+
+          collection.admin.components.beforeList.push(
+            `payload-plugin-import-export/client#ImportExport`,
+          )
         }
       }
     }
@@ -68,18 +90,22 @@ export const payloadPluginTemplate =
     }
 
     config.admin.components.beforeDashboard.push(
-      `payload-plugin-template/client#BeforeDashboardClient`,
+      `payload-plugin-import-export/client#BeforeDashboardClient`,
     )
     config.admin.components.beforeDashboard.push(
-      `payload-plugin-template/rsc#BeforeDashboardServer`,
+      `payload-plugin-import-export/rsc#BeforeDashboardServer`,
     )
 
     config.endpoints.push({
-      handler: () => {
-        return Response.json({ message: 'Hello from custom endpoint' })
-      },
+      handler: MyPluginEndpointHandler,
       method: 'get',
       path: '/my-plugin-endpoint',
+    })
+
+    config.endpoints.push({
+      handler: ExportHandler,
+      method: 'post',
+      path: '/export',
     })
 
     const incomingOnInit = config.onInit

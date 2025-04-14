@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      json2csv:
+        specifier: 6.0.0-alpha.2
+        version: 6.0.0-alpha.2
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.2.0
@@ -44,6 +48,9 @@ importers:
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
+      '@types/json2csv':
+        specifier: ^5.0.7
+        version: 5.0.7
       '@types/node':
         specifier: ^22.5.4
         version: 22.14.1
@@ -1595,6 +1602,9 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
+  '@streamparser/json@0.0.6':
+    resolution: {integrity: sha512-vL9EVn/v+OhZ+Wcs6O4iKE9EUpwHUqHmCtNUMWjqp+6dr85+XPOSGTEsqYNq1Vn04uk9SWlOVmx9J48ggJVT2Q==}
+
   '@swc-node/core@1.13.3':
     resolution: {integrity: sha512-OGsvXIid2Go21kiNqeTIn79jcaX4l0G93X2rAnas4LFoDyA9wAwVK7xZdm+QsKoMn5Mus2yFLCc4OtX2dD/PWA==}
     engines: {node: '>= 10'}
@@ -1772,6 +1782,9 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/json2csv@5.0.7':
+    resolution: {integrity: sha512-Ma25zw9G9GEBnX8b12R4EYvnFT6dBh8L3jwsN5EUFXa+fl2dqmbLDbNWN0XuQU3rSXdsbBeCYjI9uHU2PUBxhA==}
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -3867,6 +3880,11 @@ packages:
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
 
+  json2csv@6.0.0-alpha.2:
+    resolution: {integrity: sha512-nJ3oP6QxN8z69IT1HmrJdfVxhU1kLTBVgMfRnNZc37YEY+jZ4nU27rBGxT4vaqM/KUCavLRhntmTuBFqZLBUcA==}
+    engines: {node: '>= 12', npm: '>= 6.13.0'}
+    hasBin: true
+
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
@@ -3927,7 +3945,6 @@ packages:
 
   libsql@0.4.7:
     resolution: {integrity: sha512-T9eIRCs6b0J1SHKYIvD8+KCJMcWZ900iZyxdnSCdqxN12Z1ijzT+jY5nrk72Jw4B0HGzms2NgpryArlJqvc3Lw==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lines-and-columns@1.2.4:
@@ -3940,6 +3957,10 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  lodash.get@4.4.2:
+    resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -7200,6 +7221,8 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
+  '@streamparser/json@0.0.6': {}
+
   '@swc-node/core@1.13.3(@swc/core@1.11.20)(@swc/types@0.1.21)':
     dependencies:
       '@swc/core': 1.11.20
@@ -7386,6 +7409,10 @@ snapshots:
       pretty-format: 29.7.0
 
   '@types/json-schema@7.0.15': {}
+
+  '@types/json2csv@5.0.7':
+    dependencies:
+      '@types/node': 22.14.1
 
   '@types/json5@0.0.29': {}
 
@@ -8599,7 +8626,7 @@ snapshots:
       eslint: 9.24.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.0(eslint-plugin-import-x@4.4.2(eslint@9.24.0)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint@9.24.0))(eslint@9.24.0)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0)(eslint@9.24.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import-x@4.4.2(eslint@9.24.0)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint@9.24.0))(eslint@9.24.0))(eslint@9.24.0)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.24.0)
       eslint-plugin-react: 7.37.5(eslint@9.24.0)
       eslint-plugin-react-hooks: 5.2.0(eslint@9.24.0)
@@ -8633,7 +8660,7 @@ snapshots:
       tinyglobby: 0.2.12
       unrs-resolver: 1.5.0
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0)(eslint@9.24.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import-x@4.4.2(eslint@9.24.0)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint@9.24.0))(eslint@9.24.0))(eslint@9.24.0)
       eslint-plugin-import-x: 4.4.2(eslint@9.24.0)(typescript@5.7.3)
     transitivePeerDependencies:
       - supports-color
@@ -8684,7 +8711,7 @@ snapshots:
       - typescript
     optional: true
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0)(eslint@9.24.0):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint-import-resolver-typescript@3.10.0(eslint-plugin-import-x@4.4.2(eslint@9.24.0)(typescript@5.7.3))(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.1(eslint@9.24.0)(typescript@5.7.3))(eslint@9.24.0))(eslint@9.24.0))(eslint@9.24.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -10008,6 +10035,12 @@ snapshots:
 
   json-stable-stringify-without-jsonify@1.0.1: {}
 
+  json2csv@6.0.0-alpha.2:
+    dependencies:
+      '@streamparser/json': 0.0.6
+      commander: 6.2.1
+      lodash.get: 4.4.2
+
   json5@1.0.2:
     dependencies:
       minimist: 1.2.8
@@ -10076,6 +10109,8 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  lodash.get@4.4.2: {}
 
   lodash.merge@4.6.2: {}
 

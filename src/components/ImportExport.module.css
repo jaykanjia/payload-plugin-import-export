@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.exportDrawer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  height: 80vh;
+}
+
+.formFieldsWrapper {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    z-index: 10;
+  }
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--theme-bg), transparent);
+  }
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--theme-bg), transparent);
+  }
+}
+
+.formFields {
+  height: 100%;
+  padding-block: 2rem;
+  overflow-y: scroll;
+
+  & input,
+  & > * {
+    margin-bottom: 4px !important;
+  }
+}

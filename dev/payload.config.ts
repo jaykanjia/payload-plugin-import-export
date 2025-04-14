@@ -1,8 +1,9 @@
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
+// import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
-import { payloadPluginTemplate } from 'payload-plugin-template'
+import { payloadPluginTemplate } from 'payload-plugin-import-export'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
@@ -27,7 +28,69 @@ export default buildConfig({
   collections: [
     {
       slug: 'posts',
-      fields: [],
+      fields: [
+        {
+          type: 'text',
+          name: 'title',
+          label: 'Title',
+        },
+        {
+          type: 'text',
+          name: 'content',
+          label: 'Content',
+        },
+        {
+          type: 'relationship',
+          relationTo: 'author',
+          name: 'author',
+          label: 'Author',
+        },
+        {
+          type: 'relationship',
+          relationTo: 'category',
+          name: 'categories',
+          label: 'Categories',
+          hasMany: true,
+        },
+        {
+          type: 'select',
+          name: 'status',
+          label: 'Status',
+          options: ['draft', 'published', 'archived'],
+        },
+      ],
+    },
+    {
+      slug: 'author',
+      fields: [
+        {
+          type: 'text',
+          name: 'name',
+          label: 'Name',
+        },
+        {
+          type: 'number',
+          name: 'age',
+          label: 'Age',
+        },
+      ],
+    },
+    {
+      slug: 'category',
+      fields: [
+        {
+          type: 'text',
+          name: 'name',
+          label: 'Name',
+        },
+        {
+          type: 'text',
+          required: true,
+          unique: true,
+          name: 'slug',
+          label: 'slug',
+        },
+      ],
     },
     {
       slug: 'media',
@@ -37,8 +100,15 @@ export default buildConfig({
       },
     },
   ],
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+  // db: mongooseAdapter({
+  //   url: process.env.DATABASE_URI || '',
+  // }),
+  db: postgresAdapter({
+    // Postgres-specific arguments go here.
+    // `pool` is required.
+    pool: {
+      connectionString: process.env.DATABASE_URI,
+    },
   }),
   editor: lexicalEditor(),
   email: testEmailAdapter,

@@ -1,5 +1,5 @@
 {
-  "name": "payload-plugin-template",
+  "name": "payload-plugin-import-export",
   "version": "1.0.0",
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
@@ -54,6 +54,7 @@
     "@swc/cli": "0.6.0",
     "@swc/jest": "^0.2.37",
     "@types/jest": "29.5.12",
+    "@types/json2csv": "^5.0.7",
     "@types/node": "^22.5.4",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.2",
@@ -110,5 +111,8 @@
     ]
   },
   "registry": "https://registry.npmjs.org/",
-  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971",
+  "dependencies": {
+    "json2csv": "6.0.0-alpha.2"
+  }
 }
